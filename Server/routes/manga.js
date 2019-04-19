@@ -22,7 +22,32 @@ router.get('/all' , (req, res) => {
     .then((manga) => {
       return res.status(200).json(manga)
     })
-  })
+  });
+
+  router.get('/details/:id', (req, res) => {
+    const id = req.params.id
+    Manga.findById(id)
+      .then((manga) => {
+        if (!manga) {
+          return res.status(404).json({
+            success: false,
+            message: 'Entry does not exists!'
+          })
+        }
+  
+        let response = {
+          id,
+          title: manga.title,
+          description: manga.description,
+          price: manga.price,
+          author: manga.author,
+          image:manga.image
+        }
+  
+  
+        res.status(200).json(response)
+      })
+  });
   
 
 module.exports = router;

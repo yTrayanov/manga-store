@@ -15,6 +15,14 @@ const userSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.String,
     required: true
   },
+  orders: [{
+    type:mongoose.Schema.Types.ObjectId ,
+    ref:'Order'
+  }],
+  cart: [{
+    type:mongoose.Schema.Types.ObjectId ,
+    ref:'Manga'
+  }],
   salt: {
     type: mongoose.Schema.Types.String,
     required: true
@@ -39,7 +47,7 @@ User.seedAdminUser = async () => {
     const salt = encryption.generateSalt();
     const hashedPass = encryption.generateHashedPassword(salt, 'Admin');
     return User.create({
-      name: 'Admin',
+      username: 'Admin',
       email: 'admin@admin.com',
       salt,
       hashedPass,
