@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-md-4 col-md-offset-1 manga-div" *ngFor="let m of manga">
+        <div class="text-center">
+          <h3>{{m.title}}</h3>
+          <p>{{m.author}}</p>
+          <p>{{m.price}}</p>
+        </div>
+        <img src="{{m.image}}" alt="">
+        <button routerLink="/details/{{m._id}}">Details</button>
+        <button (click)="addToCart(m._id)">Add</button>
+  </div>
+</div>
