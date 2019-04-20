@@ -3,7 +3,6 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import IManga from 'src/app/interfaces/IManga';
 import { MangaService } from '../manga.service';
 import { FormBuilder, Validators } from '@angular/forms';
-import { routerNgProbeToken } from '@angular/router/src/router_module';
 
 @Component({
   selector: 'app-edit-manga',
