@@ -31,6 +31,7 @@
     <button type="submit" class="btn btn-primary btn-block" [disabled]="form.invalid"> Sign In </button>
   </div>
 </form>
+<p *ngIf="errorMsg">{{errorMsg}}</p>
 </div>
 <div class="col-lg-4"></div>
 </div>

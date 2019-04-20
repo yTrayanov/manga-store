@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import {catchError, map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +18,13 @@ export class AuthService {
     return this.http.post(this.registerUrl, body);
   }
 
-  login(body) {
-    return this.http.post(this.loginUrl, body);
+  login(body){
+    return this.http.post(this.loginUrl, body)
+      .pipe(map(data =>{
+        return data;
+      }), catchError(error =>{
+        return Observable.throw(error.message || 'Server Error');
+      }))
   }
 
   logout() {
@@ -35,5 +42,10 @@ export class AuthService {
   getToken(){
     let token = localStorage.getItem('token');
     return token;
+  }
+
+  getUserId(){
+    let id = localStorage.getItem('userId');
+    return id;
   }
 }

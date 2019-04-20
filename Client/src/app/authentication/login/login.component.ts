@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   form; 
-  user;
+  errorMsg:string;
   constructor(private authService:AuthService , private router:Router , private fb:FormBuilder) { }
 
   ngOnInit() {
@@ -22,15 +22,16 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-      this.authService
-        .login(this.form.value)
-        .subscribe((data) =>{
-          localStorage.setItem('token',data['token']);
-          localStorage.setItem('username',data['user']['username']);
-          localStorage.setItem('isAdmin',data['user']['isAdmin']);
-          console.log(data);
-          this.router.navigate(['/home'])
-        })
+
+        this.authService
+      .login(this.form.value)
+      .subscribe((data) =>{
+        localStorage.setItem('token',data['token']);
+        localStorage.setItem('username',data['user']['username']);
+        localStorage.setItem('isAdmin',data['user']['isAdmin']);
+        localStorage.setItem('userId',data['user']['userId'])
+        this.router.navigate(['/home'])
+      });
   }
 
   get f(){

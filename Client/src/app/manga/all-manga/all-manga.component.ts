@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import IManga from 'src/app/interfaces/IManga';
 import { MangaService } from '../manga.service';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/authentication/auth.service';
 
 @Component({
   selector: 'app-all-manga',
@@ -9,7 +11,11 @@ import { MangaService } from '../manga.service';
 })
 export class AllMangaComponent implements OnInit {
   manga:IManga[];
-  constructor(private mangaService:MangaService) { }
+  constructor(
+    private mangaService:MangaService,
+    public authService:AuthService,
+    private router:Router
+    ) { }
 
   ngOnInit() {
     this.mangaService.getAllManga()
@@ -19,7 +25,22 @@ export class AllMangaComponent implements OnInit {
   }
 
   addToCart(id:string){
-    console.log(id);
+
+    let object = {mangaId:id , userId:this.authService.getUserId()};
+
+    this.mangaService
+      .addMangaToUser(object)
+      .subscribe((data) =>{
+      })
+  }
+
+  removeManga(id:string){
+    this.mangaService
+      .removeManga(id)
+      .subscribe((data) =>{
+        this.router.navigateByUrl('/cart', {skipLocationChange: true}).then(()=>
+        this.router.navigate(["/home"]));
+      });
   }
 
 }

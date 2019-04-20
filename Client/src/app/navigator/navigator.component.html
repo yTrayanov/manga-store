@@ -7,7 +7,7 @@
 
   <div class="navbar-collapse collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
-      <li  class="nav-item" *ngIf="authService.isAuthenticated()">
+      <li  class="nav-item" *ngIf="authService.isAuthenticated()  && !authService.isAdmin()">
         <a class="nav-link" routerLink="/cart" >Cart</a>
       </li>
       <li  class="nav-item" *ngIf="authService.isAuthenticated() && authService.isAdmin()">

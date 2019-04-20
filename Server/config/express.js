@@ -6,6 +6,7 @@ const localLoginStrategy = require('../passport/local-login')
 const authRoutes = require('../routes/auth')
 const mangaRoutes = require('../routes/manga')
 const statsRoutes = require('../routes/stats')
+const express = require('express');
 
 module.exports = app => {
   app.use(bodyParser.urlencoded({
