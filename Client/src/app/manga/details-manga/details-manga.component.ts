@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import IManga from 'src/app/interfaces/IManga';
 import { MangaService } from '../manga.service';
 import { ActivatedRoute, Params } from '@angular/router';
+import { AuthService } from 'src/app/authentication/auth.service';
 
 @Component({
   selector: 'app-details-manga',
@@ -13,7 +14,8 @@ export class DetailsMangaComponent implements OnInit {
   manga:IManga;
   constructor(
     private mangaService:MangaService ,
-    private route:ActivatedRoute
+    private route:ActivatedRoute,
+    public authService:AuthService
     ) { }
 
   ngOnInit() {

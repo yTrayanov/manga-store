@@ -134,6 +134,27 @@ router.delete('/remove/:id', (req,res) =>{
           })
         })
     })
+});
+
+router.post('/edit/:id',(req,res) =>{
+  const mangaId = req.params.id;
+  const updatedManga = req.body;
+
+  Manga.findById(mangaId)
+    .then((manga) => {
+      manga.title = updatedManga.title;
+      manga.image = updatedManga.image;
+      manga.description =updatedManga.description;
+      manga.price = updatedManga.price;
+      manga.description = updatedManga.description;
+
+      manga.save();
+
+      return res.status(200).json({
+        success:true,
+        message:'Updated manga successfully'
+      })
+    })
 })
 
   

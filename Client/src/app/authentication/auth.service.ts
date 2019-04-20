@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import {catchError, map} from 'rxjs/operators';
 
 @Injectable({
@@ -20,10 +20,8 @@ export class AuthService {
 
   login(body){
     return this.http.post(this.loginUrl, body)
-      .pipe(map(data =>{
-        return data;
-      }), catchError(error =>{
-        return Observable.throw(error.message || 'Server Error');
+      .pipe(catchError(error =>{
+        return throwError(error.message)
       }))
   }
 

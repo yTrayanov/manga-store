@@ -7,6 +7,7 @@
       <p class="type"><span>Plot Summary: </span>{{manga?.description}}</p>
       <p class="type"><span>Author: </span>{{manga?.author}}</p>
       <p class="type"><span>Price: {{manga?.price}} </span></p>
+      <button routerLink="/edit/{{id}}" *ngIf="authService.isAdmin()" >Edit</button>
   </div>
 </div>
 

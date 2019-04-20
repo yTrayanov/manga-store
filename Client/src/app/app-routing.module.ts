@@ -8,6 +8,7 @@ import { DetailsMangaComponent } from './manga/details-manga/details-manga.compo
 import { AuthGuard } from './authentication/guards/auth.guard';
 import { AdminGuard } from './authentication/guards/admin.guard';
 import { CartComponent } from './manga/cart/cart.component';
+import { EditMangaComponent } from './manga/edit-manga/edit-manga.component';
 
 const routes: Routes = [
   {path:'',pathMatch:'full' , redirectTo:'/home'},
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path:'create', component:CreateMangaComponent, canActivate:[AuthGuard,AdminGuard]},
   {path:'register',component:RegisterComponent},
   {path:'login',component:LoginComponent },
-  {path:'details/:id' , component:DetailsMangaComponent}
+  {path:'edit/:id', component:EditMangaComponent , canActivate:[AdminGuard]},
+  {path:'details/:id' , component:DetailsMangaComponent},
 ];
 
 @NgModule({

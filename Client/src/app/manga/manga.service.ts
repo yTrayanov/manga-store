@@ -40,4 +40,8 @@ export class MangaService {
   removeManga(id:string){
     return this.http.delete(this.baseUrl + `/remove/${id}`);
   }
+
+  editManga(body,id){
+    return this.http.post(this.baseUrl +`/edit/${id}`,body);
+  }
 }

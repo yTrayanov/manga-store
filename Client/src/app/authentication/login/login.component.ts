@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('isAdmin',data['user']['isAdmin']);
         localStorage.setItem('userId',data['user']['userId'])
         this.router.navigate(['/home'])
-      });
+      } , (error) => {this.errorMsg = error});
   }
 
   get f(){

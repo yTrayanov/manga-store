@@ -16,6 +16,7 @@ import { AllMangaComponent } from './manga/all-manga/all-manga.component';
 import { DetailsMangaComponent } from './manga/details-manga/details-manga.component';
 import { JwtInterceptorService } from './jwt-interceptor.service';
 import { CartComponent } from './manga/cart/cart.component';
+import { EditMangaComponent } from './manga/edit-manga/edit-manga.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { CartComponent } from './manga/cart/cart.component';
     LoginComponent,
     AllMangaComponent,
     DetailsMangaComponent,
+    EditMangaComponent,
   ],
   imports: [
     BrowserModule,
