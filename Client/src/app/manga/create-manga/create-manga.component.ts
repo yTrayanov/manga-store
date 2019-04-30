@@ -30,7 +30,7 @@ export class CreateMangaComponent implements OnInit {
     this.mangaService
       .create(this.form.value)
       .subscribe(() =>{
-        this.router.navigate(['/home']);
+        this.router.navigate(['/manga']);
       })
   }
   

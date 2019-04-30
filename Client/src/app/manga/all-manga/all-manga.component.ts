@@ -38,8 +38,8 @@ export class AllMangaComponent implements OnInit {
     this.mangaService
       .removeManga(id)
       .subscribe((data) =>{
-        this.router.navigateByUrl('/cart', {skipLocationChange: true}).then(()=>
-        this.router.navigate(["/home"]));
+        this.router.navigateByUrl('/manga/cart', {skipLocationChange: true}).then(()=>
+        this.router.navigate(["/manga"]));
       });
   }
 

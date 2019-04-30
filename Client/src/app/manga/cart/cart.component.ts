@@ -31,8 +31,8 @@ export class CartComponent implements OnInit {
     this.mangaService
       .removeMangaFromUser(id)
       .subscribe((data)=>{
-        this.router.navigateByUrl('/home', {skipLocationChange: true}).then(()=>
-        this.router.navigate(["/cart"]));
+        this.router.navigateByUrl('/manga', {skipLocationChange: true}).then(()=>
+        this.router.navigate(["/manga/cart"])); 
       });
   }
 

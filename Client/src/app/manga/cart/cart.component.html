@@ -7,9 +7,9 @@
         </div>
         <img src="{{m.image}}" alt="">
         <div>
-          <button routerLink="/details/{{m._id}}">Details</button>
+          <button routerLink="/manga/details/{{m._id}}">Details</button>
           <button  (click)="buyManga(m._id)">Buy</button>
-          <button (click)="removeManga(m._id)" routerLink="/cart">Remove</button>
+          <button (click)="removeManga(m._id)" >Remove</button>
         </div>
   </div>
 </div>

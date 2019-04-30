@@ -11,13 +11,15 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   form; 
   errorMsg:string;
-  constructor(private authService:AuthService , private router:Router , private fb:FormBuilder) { }
-
-  ngOnInit() {
+  constructor(private authService:AuthService , private router:Router , private fb:FormBuilder) {
     this.form = this.fb.group({
       email:['',Validators.required],
       password:['',Validators.required]
     })
+   }
+
+  ngOnInit() {
+    
     console.log(this.f)
   }
 
@@ -30,7 +32,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('username',data['user']['username']);
         localStorage.setItem('isAdmin',data['user']['isAdmin']);
         localStorage.setItem('userId',data['user']['userId'])
-        this.router.navigate(['/home'])
+        this.router.navigate(['/manga'])
       } , (error) => {this.errorMsg = error});
   }
 

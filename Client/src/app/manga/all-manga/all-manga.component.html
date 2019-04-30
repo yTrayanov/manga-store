@@ -4,7 +4,7 @@
           <h3>{{m.title}}</h3>
         </div>
         <img src="{{m.image}}" alt="">
-        <button routerLink="/details/{{m._id}}">Details</button>
+        <button routerLink="/manga/details/{{m._id}}">Details</button>
         <button *ngIf="authService.isAuthenticated() && !authService.isAdmin()" (click)="addToCart(m._id)">Add</button>
         <button *ngIf="authService.isAuthenticated() && authService.isAdmin()" (click)="removeManga(m._id)">Remove</button>
   </div>

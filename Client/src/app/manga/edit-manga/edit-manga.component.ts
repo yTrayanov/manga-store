@@ -46,7 +46,7 @@ export class EditMangaComponent implements OnInit {
     this.mangaService
       .editManga(body,this.id)
       .subscribe((data)=>{
-        this.router.navigate([`/details/${this.id}`])
+        this.router.navigate([`/manga/details/${this.id}`])
       });
   }
 

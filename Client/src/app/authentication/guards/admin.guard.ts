@@ -20,7 +20,7 @@ export class AdminGuard implements CanActivate {
       return true;
     }  
 
-    this.router.navigate(['/home']);
+    this.router.navigate(['/manga']);
     
     return false;
   }
